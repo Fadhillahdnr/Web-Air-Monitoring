@@ -1,0 +1,63 @@
+/* ==========================================
+   BADGE
+========================================== */
+
+.badge {
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 6px 12px;
+
+    border-radius: 999px;
+
+    font-size: 12px;
+
+    font-weight: 600;
+}
+
+/* ==========================================
+   SUCCESS
+========================================== */
+
+.badge-success {
+
+    background: rgba(16,185,129,.12);
+
+    color: var(--success);
+}
+
+/* ==========================================
+   WARNING
+========================================== */
+
+.badge-warning {
+
+    background: rgba(245,158,11,.12);
+
+    color: var(--warning);
+}
+
+/* ==========================================
+   DANGER
+========================================== */
+
+.badge-danger {
+
+    background: rgba(239,68,68,.12);
+
+    color: var(--danger);
+}
+
+/* ==========================================
+   PRIMARY
+========================================== */
+
+.badge-primary {
+
+    background: rgba(37,99,235,.12);
+
+    color: var(--primary);
+}

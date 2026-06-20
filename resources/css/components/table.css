@@ -1,0 +1,58 @@
+/* ==========================================
+   TABLE WRAPPER
+========================================== */
+
+.table-wrapper {
+
+    overflow-x: auto;
+}
+
+/* ==========================================
+   TABLE
+========================================== */
+
+.table {
+
+    width: 100%;
+
+    border-collapse: collapse;
+}
+
+.table thead {
+
+    background: #f8fafc;
+}
+
+.table th {
+
+    padding: 16px;
+
+    text-align: left;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    color: var(--text-secondary);
+
+    border-bottom: 1px solid var(--border);
+}
+
+.table td {
+
+    padding: 16px;
+
+    border-bottom: 1px solid var(--border);
+
+    color: var(--text-primary);
+}
+
+.table tbody tr {
+
+    transition: var(--transition);
+}
+
+.table tbody tr:hover {
+
+    background: #f8fafc;
+}

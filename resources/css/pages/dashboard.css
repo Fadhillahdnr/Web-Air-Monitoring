@@ -1,0 +1,571 @@
+/* ==========================================
+   DASHBOARD PAGE
+========================================== */
+
+.dashboard-page {
+
+    max-width: 1600px;
+
+    margin: 0 auto;
+
+    padding: 32px;
+}
+
+/* ==========================================
+   HERO
+========================================== */
+
+.dashboard-hero {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 24px;
+
+    margin-bottom: 32px;
+}
+
+.hero-badge {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    padding: 8px 14px;
+
+    border-radius: 999px;
+
+    background: rgba(37, 99, 235, 0.10);
+
+    color: var(--primary);
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    margin-bottom: 14px;
+}
+
+.hero-title {
+
+    font-size: 42px;
+
+    font-weight: 800;
+
+    color: var(--text-primary);
+
+    margin-bottom: 8px;
+}
+
+.hero-subtitle {
+
+    color: var(--text-secondary);
+
+    font-size: 16px;
+}
+
+.hero-status {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 12px 18px;
+
+    background: white;
+
+    border-radius: 14px;
+
+    border: 1px solid var(--border);
+
+    box-shadow: var(--shadow-sm);
+
+    font-weight: 600;
+}
+
+.status-dot {
+
+    width: 10px;
+
+    height: 10px;
+
+    border-radius: 50%;
+
+    background: #22c55e;
+
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    50% {
+        transform: scale(1.3);
+        opacity: .6;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* ==========================================
+   METRIC GRID
+========================================== */
+
+.metrics-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(5, 1fr);
+
+    gap: 24px;
+
+    margin-bottom: 32px;
+}
+
+.metric-card {
+
+    background: white;
+
+    border: 1px solid var(--border);
+
+    border-radius: 24px;
+
+    padding: 24px;
+
+    box-shadow: var(--shadow-sm);
+
+    transition: var(--transition);
+}
+
+.metric-card:hover {
+
+    transform: translateY(-4px);
+
+    box-shadow: var(--shadow-md);
+}
+
+.metric-label {
+
+    color: var(--text-secondary);
+
+    font-size: 14px;
+
+    margin-bottom: 14px;
+}
+
+.metric-card h2 {
+
+    font-size: 38px;
+
+    font-weight: 800;
+
+    color: var(--text-primary);
+
+    margin-bottom: 8px;
+}
+
+.metric-card span {
+
+    color: var(--text-secondary);
+
+    font-size: 13px;
+}
+
+/* ==========================================
+   CARD COLORS
+========================================== */
+
+.pm {
+
+    border-top: 5px solid #3b82f6;
+}
+
+.co {
+
+    border-top: 5px solid #f59e0b;
+}
+
+.ozone {
+
+    border-top: 5px solid #8b5cf6;
+}
+
+.temp {
+
+    border-top: 5px solid #ef4444;
+}
+
+.battery {
+
+    border-top: 5px solid #22c55e;
+}
+
+/* ==========================================
+   BATTERY
+========================================== */
+
+.battery-progress {
+
+    margin-top: 16px;
+
+    width: 100%;
+
+    height: 10px;
+
+    background: #e2e8f0;
+
+    border-radius: 999px;
+
+    overflow: hidden;
+}
+
+.battery-progress-fill {
+
+    height: 100%;
+
+    width: 0;
+
+    border-radius: 999px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #22c55e,
+            #16a34a
+        );
+
+    transition: 0.5s;
+}
+
+/* ==========================================
+   STATUS GRID
+========================================== */
+
+.status-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 24px;
+
+    margin-bottom: 24px;
+}
+
+.dashboard-card {
+
+    background: white;
+
+    border-radius: 24px;
+
+    border: 1px solid var(--border);
+
+    padding: 24px;
+
+    box-shadow: var(--shadow-sm);
+}
+
+.card-title {
+
+    font-size: 15px;
+
+    font-weight: 700;
+
+    color: var(--text-secondary);
+
+    margin-bottom: 16px;
+}
+
+#air-status {
+
+    font-size: 32px;
+
+    font-weight: 800;
+}
+
+.telegram-online {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    color: #22c55e;
+
+    font-weight: 700;
+}
+
+/* ==========================================
+   ALERT
+========================================== */
+
+.alert-card {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 18px;
+
+    background: white;
+
+    border: 1px solid var(--border);
+
+    border-left: 6px solid #22c55e;
+
+    border-radius: 24px;
+
+    padding: 24px;
+
+    margin-bottom: 24px;
+
+    box-shadow: var(--shadow-sm);
+}
+
+.alert-icon {
+
+    width: 60px;
+
+    height: 60px;
+
+    border-radius: 18px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 26px;
+
+    background: #ecfdf5;
+}
+
+.alert-card h3 {
+
+    font-size: 18px;
+
+    font-weight: 700;
+
+    margin-bottom: 4px;
+}
+
+.alert-card p {
+
+    color: var(--text-secondary);
+}
+
+/* ==========================================
+   FILTER
+========================================== */
+
+.filter-card {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    align-items: end;
+
+    gap: 16px;
+
+    background: white;
+
+    border-radius: 24px;
+
+    padding: 24px;
+
+    border: 1px solid var(--border);
+
+    margin-bottom: 24px;
+}
+
+.filter-group {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+}
+
+.filter-group label {
+
+    font-size: 14px;
+
+    font-weight: 600;
+}
+
+.filter-group input {
+
+    height: 48px;
+
+    padding: 0 14px;
+
+    border-radius: 12px;
+
+    border: 1px solid var(--border);
+}
+
+/* ==========================================
+   CHART
+========================================== */
+
+.chart-wrapper {
+
+    height: 420px;
+
+    position: relative;
+}
+
+/* ==========================================
+   TABLE
+========================================== */
+
+.table-wrapper {
+
+    overflow-x: auto;
+}
+
+.table-wrapper table {
+
+    width: 100%;
+
+    border-collapse: collapse;
+}
+
+.table-wrapper th {
+
+    text-align: left;
+
+    background: #f8fafc;
+
+    padding: 14px;
+
+    font-size: 14px;
+
+    font-weight: 700;
+}
+
+.table-wrapper td {
+
+    padding: 14px;
+
+    border-top: 1px solid #e2e8f0;
+}
+
+/* ==========================================
+   BOTTOM GRID
+========================================== */
+
+.bottom-grid {
+
+    display: grid;
+
+    grid-template-columns: 2fr 1fr;
+
+    gap: 24px;
+
+    margin-top: 24px;
+}
+
+/* ==========================================
+   ALERT HISTORY
+========================================== */
+
+.alert-history-list {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 12px;
+}
+
+.empty-alert {
+
+    padding: 18px;
+
+    text-align: center;
+
+    background: #f8fafc;
+
+    border-radius: 14px;
+
+    color: var(--text-secondary);
+}
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media (max-width: 1400px) {
+
+    .metrics-grid {
+
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 1024px) {
+
+    .status-grid {
+
+        grid-template-columns: 1fr;
+    }
+
+    .bottom-grid {
+
+        grid-template-columns: 1fr;
+    }
+
+    .metrics-grid {
+
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+
+    .dashboard-page {
+
+        padding: 20px;
+    }
+
+    .dashboard-hero {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+    .metrics-grid {
+
+        grid-template-columns: 1fr;
+    }
+
+    .hero-title {
+
+        font-size: 32px;
+    }
+
+    .filter-card {
+
+        flex-direction: column;
+
+        align-items: stretch;
+    }
+}

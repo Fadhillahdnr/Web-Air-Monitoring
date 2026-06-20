@@ -1,0 +1,111 @@
+/* ==========================================
+   BUTTON BASE
+========================================== */
+
+.btn {
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    padding: 12px 22px;
+
+    border-radius: var(--radius-md);
+
+    font-weight: 600;
+
+    transition: var(--transition);
+
+    cursor: pointer;
+}
+
+/* ==========================================
+   PRIMARY
+========================================== */
+
+.btn-primary {
+
+    background: var(--primary);
+
+    color: white;
+}
+
+.btn-primary:hover {
+
+    background: var(--primary-hover);
+
+    transform: translateY(-2px);
+}
+
+/* ==========================================
+   SECONDARY
+========================================== */
+
+.btn-secondary {
+
+    background: white;
+
+    color: var(--text-primary);
+
+    border: 1px solid var(--border);
+}
+
+.btn-secondary:hover {
+
+    background: #f8fafc;
+
+    transform: translateY(-2px);
+}
+
+/* ==========================================
+   OUTLINE
+========================================== */
+
+.btn-outline {
+
+    border: 1px solid var(--primary);
+
+    color: var(--primary);
+
+    background: transparent;
+}
+
+.btn-outline:hover {
+
+    background: var(--primary);
+
+    color: white;
+}
+
+/* ==========================================
+   SUCCESS
+========================================== */
+
+.btn-success {
+
+    background: var(--success);
+
+    color: white;
+}
+
+/* ==========================================
+   DANGER
+========================================== */
+
+.btn-danger {
+
+    background: var(--danger);
+
+    color: white;
+}
+
+/* ==========================================
+   FULL WIDTH
+========================================== */
+
+.btn-block {
+
+    width: 100%;
+}
