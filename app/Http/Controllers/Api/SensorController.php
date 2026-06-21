@@ -161,12 +161,12 @@ class SensorController extends Controller
                 $response = Http::post(
 
                     "https://api.telegram.org/bot" .
-                    env('TELEGRAM_BOT_TOKEN') .
+                    config('services.telegram.bot_token') .
                     "/sendMessage",
 
                     [
 
-                        'chat_id' => env('TELEGRAM_CHAT_ID'),
+                        'chat_id' => config('services.telegram.chat_id'),
 
                         'text' => $message
                     ]

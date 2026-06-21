@@ -608,6 +608,12 @@ async function loadAlert() {
         const response =
             await fetch('/api/alerts/latest');
 
+        if (!response.ok) {
+            throw new Error(
+                `HTTP Error: ${response.status}`
+            );
+        }
+
         const alert =
             await response.json();
 
@@ -644,7 +650,7 @@ async function loadAlert() {
 
         if (alertMessage) {
 
-            alertMessage.innerHTML =
+            alertMessage.textContent =
                 alert.message;
         }
 
@@ -793,7 +799,13 @@ function playAlarmSound() {
     const audio =
         new Audio('/sounds/alert.mp3');
 
-    audio.play();
+    audio.play()
+        .catch(error => {
+            console.log(
+                'Audio blocked:',
+                error
+            );
+        });
 }
 
 // ======================================================
