@@ -11,3 +11,5 @@ Route::get('/sensor/latest', [SensorController::class, 'latest']);
 Route::get('/sensor/history', [SensorController::class, 'history']);
 
 Route::get('/sensor/all', [SensorController::class, 'all']);
+
+Route::get('/alerts/latest', [SensorController::class, 'alertHistory']);

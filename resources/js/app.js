@@ -614,8 +614,14 @@ async function loadAlert() {
             );
         }
 
-        const alert =
+        const alerts =
             await response.json();
+
+        if (!Array.isArray(alerts)) return;
+
+        renderAlertHistory(alerts);
+
+        const alert = alerts[0];
 
         if (!alert) return;
 
@@ -671,18 +677,17 @@ async function loadAlert() {
             }
         }
 
-        if (
-            alert.id &&
-            lastAlertId !== alert.id
-        ) {
+        if (alert.id && lastAlertId === null) {
+            lastAlertId = alert.id;
+        } else if (alert.id && lastAlertId !== alert.id) {
 
             lastAlertId = alert.id;
 
             showToast(
-                '🚨 Alert Telegram berhasil dikirim'
+                alert.telegram_sent
+                    ? '🚨 Alert Telegram berhasil dikirim'
+                    : '⚠️ Status berubah, tetapi Telegram gagal dikirim'
             );
-
-            addAlertHistory(alert);
 
             playAlarmSound();
         }
@@ -700,59 +705,48 @@ async function loadAlert() {
 // ALERT HISTORY
 // ======================================================
 
-function addAlertHistory(alert) {
+function renderAlertHistory(alerts) {
 
     const history =
         document.getElementById('alert-history');
 
     if (!history) return;
 
-    // HAPUS TEXT EMPTY
-    const empty =
-        history.querySelector('.empty-alert');
+    history.innerHTML = '';
 
-    if (empty) {
-        empty.remove();
+    if (alerts.length === 0) {
+        const empty = document.createElement('div');
+        empty.className = 'empty-alert';
+        empty.textContent = 'No alerts yet';
+        history.appendChild(empty);
+        return;
     }
 
-    const item =
-        document.createElement('div');
+    alerts.slice(0, 10).forEach(alert => {
+        const item = document.createElement('div');
 
-    item.className =
-        'alert-history-item';
+        item.className = 'alert-history-item';
 
-    item.innerHTML = `
+        const top = document.createElement('div');
+        top.className = 'alert-history-top';
 
-        <div class="alert-history-top">
+        const badge = document.createElement('span');
+        badge.className = 'alert-badge';
+        badge.textContent = `🚨 ${String(alert.type).toUpperCase()}`;
 
-            <span class="alert-badge">
+        const time = document.createElement('span');
+        time.className = 'alert-time';
+        time.textContent = new Date(alert.created_at)
+            .toLocaleTimeString();
 
-                🚨 ${alert.type.toUpperCase()}
+        const message = document.createElement('div');
+        message.className = 'alert-history-message';
+        message.textContent = alert.message;
 
-            </span>
-
-            <span class="alert-time">
-
-                ${new Date(alert.created_at)
-                    .toLocaleTimeString()}
-
-            </span>
-
-        </div>
-
-        <div class="alert-history-message">
-
-            ${alert.message}
-
-        </div>
-    `;
-
-    history.prepend(item);
-
-    while (history.children.length > 10) {
-
-        history.removeChild(history.lastChild);
-    }
+        top.append(badge, time);
+        item.append(top, message);
+        history.appendChild(item);
+    });
 }
 
 // ======================================================

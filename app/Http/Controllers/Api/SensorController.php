@@ -261,10 +261,23 @@ class SensorController extends Controller
         // ==============================================
 
         $data = $query->latest()
-                    ->take(50)
+                    ->take(10)
                     ->get();
 
         return response()->json($data);
+    }
+
+    // ==================================================
+    // AMBIL 10 ALERT TERBARU
+    // ==================================================
+
+    public function alertHistory()
+    {
+        $alerts = Alert::latest()
+            ->take(10)
+            ->get();
+
+        return response()->json($alerts);
     }
 
     // ==================================================
