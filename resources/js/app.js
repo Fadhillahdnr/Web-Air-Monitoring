@@ -373,7 +373,7 @@ async function updateDashboard() {
 
         setText('co', data.co + ' ppm');
 
-        setText('ozone', data.ozone + ' ppm');
+        setText('ozone', data.ozone + ' ppb');
 
         setText('temperature', data.temperature + '°C');
 
